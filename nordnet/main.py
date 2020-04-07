@@ -34,6 +34,8 @@ from urllib.parse import urlencode
 from typing import Optional
 from pathlib import Path
 
+import click
+
 logger = logging.getLogger(__name__)
 
 # global variables with static information about nExt API
@@ -228,19 +230,11 @@ class NordnetClient:
         feed_socket.close()
 
 
-def main():
-    """
-    The main function
-    """
-    # Input username and password for your account in the test system
-    if len(sys.argv) != 3:
-        raise Exception(
-            "To run test_program you need to provide as arguments [USERNAME] [PASSWORD]"
-        )
-    USERNAME = sys.argv[1]
-    PASSWORD = sys.argv[2]
-
-    client = NordnetClient(USERNAME, PASSWORD)
+@click.command()
+@click.argument("username")
+@click.argument("password")
+def main(username, password):
+    client = NordnetClient(username, password)
     client.check()
     client.login()
     client.feed_interface()
