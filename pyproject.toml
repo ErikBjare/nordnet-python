@@ -9,6 +9,7 @@ license = "MIT"
 python = "^3.6"
 requests = "^2.23.0"
 click = "^7.1.1"
+pycrypto = "^2.6.1"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
