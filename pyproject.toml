@@ -4,12 +4,16 @@ version = "0.1.0"
 description = ""
 authors = ["Erik Bjäreholt <erik@bjareho.lt>"]
 license = "MIT"
+packages = [
+    { include = "nordnet" },
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.6"
-requests = "^2.23.0"
+requests = "^2.22.0"
 click = "^7.1.1"
-pycrypto = "^2.6.1"
+pycryptodome = "^3.9.7"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
